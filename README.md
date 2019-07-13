@@ -1,6 +1,6 @@
 # QuickJS iOS
 
-QuickJS Javascript Engine static libraries compiled for armv64, arm64e and x86_64 for use in iOS development.
+[QuickJS Javascript Engine](https://bellard.org/quickjs/) static libraries compiled for armv64, arm64e and x86_64 for use in iOS development.
 
 ## Why?
 
