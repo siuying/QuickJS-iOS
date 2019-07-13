@@ -7,31 +7,22 @@
 //
 
 #import <XCTest/XCTest.h>
+#import <QuickJS/quickjs.h>
 
 @interface QuickJS_iOSTests : XCTestCase
-
 @end
 
 @implementation QuickJS_iOSTests
 
-- (void)setUp {
-    // Put setup code here. This method is called before the invocation of each test method in the class.
-}
+- (void)testFib {
+    JSRuntime* runtime = JS_NewRuntime();
+    JSContext* context = JS_NewContext(runtime);
+    const char * fib = "function fib(n) {\n if (n <= 0) return 0;\n else if (n == 1) return 1;\n else return fib(n - 1) + fib(n - 2);}";
+    JS_Eval(context, fib, strlen(fib), "cmdline", 0);
 
-- (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-}
-
-- (void)testExample {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
-}
-
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
+    const char * script = "fib(36)";
+    JSValue value = JS_Eval(context, script, strlen(script), "cmdline", 0);
+    NSLog(@"value: %s", JS_ToCString(context, value));
 }
 
 @end

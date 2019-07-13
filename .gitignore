@@ -1,0 +1,5 @@
+thin
+quickjs-*-*-*
+quickjs.tar.xz
+/QuickJS_iOS.xcodeproj/xcuserdata
+VERSION
