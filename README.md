@@ -2,6 +2,11 @@
 
 QuickJS Javascript Engine static libraries compiled for armv64, arm64e and x86_64 for use in iOS development.
 
+## Why?
+
+This is just an experiment to build the library on iOS. Consider iOS has JavaScriptCore built in, there is not
+much reason to use this over JSC.
+
 ## Usage
 
 To use the library with cocoapods:
