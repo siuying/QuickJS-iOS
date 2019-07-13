@@ -25,4 +25,13 @@
     NSLog(@"value: %s", JS_ToCString(context, value));
 }
 
+- (void)testRegexp {
+    JSRuntime* runtime = JS_NewRuntime();
+    JSContext* context = JS_NewContext(runtime);
+    const char * script = "var regexp = /\\w+/; `Hello World`.match(regexp)[0]";
+    JSValue value = JS_Eval(context, script, strlen(script), "cmdline", 0);
+    NSString* result = [[NSString alloc] initWithCString:JS_ToCString(context, value) encoding:NSUTF8StringEncoding];
+    XCTAssertEqualObjects(@"Hello", result);
+}
+
 @end
