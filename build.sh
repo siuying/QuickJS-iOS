@@ -7,7 +7,7 @@ FAT="QuickJS_iOS"
 
 THIN=`pwd`/"thin"
 
-ARCHS="armv7 arm64 arm64e x86_64"
+ARCHS="arm64 arm64e x86_64"
 COMPILE="y"
 LIPO="y"
 DEPLOYMENT_TARGET="10.0"
@@ -53,7 +53,12 @@ then
 			CONFIG_EXTRA_CFLAGS="-arch $ARCH -mios-version-min=$DEPLOYMENT_TARGET -fembed-bitcode"
 		fi
 
-		TMPDIR=${TMPDIR/%\/} CONFIG_EXTRA_CFLAGS=${CONFIG_EXTRA_CFLAGS} CONFIG_SDK=${CONFIG_SDK} make -f ../Makefile -C $CWD/$SOURCE clean libquickjs.a || exit 1
+		if [ "$ARCH" = "i386" -o "$ARCH" = "armv7" ]
+		then
+		    CONFIG_M32="y"
+		fi
+
+		TMPDIR=${TMPDIR/%\/} CONFIG_M32=${CONFIG_M32} CONFIG_EXTRA_CFLAGS=${CONFIG_EXTRA_CFLAGS} CONFIG_SDK=${CONFIG_SDK} make -f ../Makefile -C $CWD/$SOURCE clean libquickjs.a || exit 1
 		mkdir -p $THIN/$ARCH/lib
 		mv $CWD/$SOURCE/libquickjs.a $THIN/$ARCH/lib/libquickjs.a
 		cd $CWD

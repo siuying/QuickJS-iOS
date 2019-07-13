@@ -64,6 +64,7 @@ ifdef CONFIG_CLANG
   CC=xcrun -sdk $(CONFIG_SDK) clang
   CFLAGS =-g -Wall -MMD -MF $(OBJDIR)/$(@F).d
   CFLAGS += $(CONFIG_EXTRA_CFLAGS)
+
   CFLAGS += -Wextra
   CFLAGS += -Wno-sign-compare
   CFLAGS += -Wno-missing-field-initializers
