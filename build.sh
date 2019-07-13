@@ -7,10 +7,10 @@ FAT="QuickJS_iOS"
 
 THIN=`pwd`/"thin"
 
-ARCHS="arm64 arm64e x86_64"
+ARCHS="armv7 arm64 arm64e x86_64"
 COMPILE="y"
 LIPO="y"
-DEPLOYMENT_TARGET="12.0"
+DEPLOYMENT_TARGET="10.0"
 
 if [ "$*" ]
 then
