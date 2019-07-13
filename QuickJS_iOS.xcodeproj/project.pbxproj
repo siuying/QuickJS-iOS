@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		540CF6DE22D9ECCC009B3103 /* JSCore_Benchmark_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 540CF6DD22D9ECCC009B3103 /* JSCore_Benchmark_Tests.m */; };
+		540CF6E022D9ECD9009B3103 /* QuickJS_Benchmark_Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 540CF6DF22D9ECD9009B3103 /* QuickJS_Benchmark_Tests.m */; };
 		5469929822D9CA8C00141C7C /* QuickJS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5469928E22D9CA8C00141C7C /* QuickJS.framework */; };
 		5469929D22D9CA8C00141C7C /* QuickJS_iOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5469929C22D9CA8C00141C7C /* QuickJS_iOSTests.m */; };
 		5469929F22D9CA8C00141C7C /* QuickJS_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 5469929122D9CA8C00141C7C /* QuickJS_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -28,6 +30,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		540CF6DD22D9ECCC009B3103 /* JSCore_Benchmark_Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JSCore_Benchmark_Tests.m; sourceTree = "<group>"; };
+		540CF6DF22D9ECD9009B3103 /* QuickJS_Benchmark_Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuickJS_Benchmark_Tests.m; sourceTree = "<group>"; };
 		5469928E22D9CA8C00141C7C /* QuickJS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QuickJS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5469929122D9CA8C00141C7C /* QuickJS_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QuickJS_iOS.h; sourceTree = "<group>"; };
 		5469929222D9CA8C00141C7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -99,6 +103,8 @@
 			isa = PBXGroup;
 			children = (
 				5469929C22D9CA8C00141C7C /* QuickJS_iOSTests.m */,
+				540CF6DF22D9ECD9009B3103 /* QuickJS_Benchmark_Tests.m */,
+				540CF6DD22D9ECCC009B3103 /* JSCore_Benchmark_Tests.m */,
 				5469929E22D9CA8C00141C7C /* Info.plist */,
 			);
 			path = QuickJS_iOSTests;
@@ -231,6 +237,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5469929D22D9CA8C00141C7C /* QuickJS_iOSTests.m in Sources */,
+				540CF6E022D9ECD9009B3103 /* QuickJS_Benchmark_Tests.m in Sources */,
+				540CF6DE22D9ECCC009B3103 /* JSCore_Benchmark_Tests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
