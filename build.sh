@@ -80,6 +80,7 @@ fi
 if [ "$LIPO" ]
 then
 	echo "building fat binaries..."
+	rm -rf ./$FAT/lib
 	mkdir -p $FAT/lib
 	mkdir -p $FAT/headers
 	cp $CWD/$SOURCE/quickjs*.h $FAT/headers
@@ -98,6 +99,7 @@ fi
 if [ "$XCFRAMEWORK" ]
 then
 	echo "building xcframework..."
+	rm -rf ./$FAT/framework
 	mkdir -p $FAT/framework
 	mkdir -p $FAT/headers
 	CWD=`pwd`
