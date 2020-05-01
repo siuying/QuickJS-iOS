@@ -9,6 +9,7 @@ THIN=`pwd`/"thin"
 ARCHS="x86_64h arm64 x86_64"
 COMPILE="y"
 LIPO="y"
+XCFRAMEWORK="y"
 DEPLOYMENT_TARGET="10.0"
 
 if [ "$*" ]
@@ -17,6 +18,12 @@ then
 	then
 		# skip compile
 		COMPILE=
+		XCFRAMEWORK=
+	elif [ "$*" = "fw" ]
+	then
+		# skip compile
+		COMPILE=
+		LIPO=
 	else
 		ARCHS="$*"
 		if [ $# -eq 1 ]
@@ -73,6 +80,9 @@ if [ "$LIPO" ]
 then
 	echo "building fat binaries..."
 	mkdir -p $FAT/lib
+	mkdir -p $FAT/headers
+	cp $CWD/$SOURCE/quickjs*.h $FAT/headers
+
 	set - $ARCHS
 	CWD=`pwd`
 	cd $THIN/$1/lib
@@ -82,9 +92,27 @@ then
 		echo lipo -create `find $THIN -name $LIB` -output $FAT/lib/$LIB 1>&2
 		lipo -create `find $THIN -name $LIB` -output $FAT/lib/$LIB || exit 1
 	done
+fi
 
-	cd $CWD
-	cp $CWD/$SOURCE/quickjs*.h $FAT
+if [ "$XCFRAMEWORK" ]
+then
+	echo "building xcframework..."
+	mkdir -p $FAT/framework
+	mkdir -p $FAT/headers
+	CWD=`pwd`
+	cp $CWD/$SOURCE/quickjs*.h $FAT/headers
+
+	set - $ARCHS
+	CWD=`pwd`
+	BUILD_FW="xcodebuild -create-xcframework"
+
+	for ARCH in $ARCHS
+	do
+		BUILD_FW="$BUILD_FW -library $THIN/$ARCH/lib/libquickjs.a -headers $FAT/headers"
+	done
+	BUILD_FW="$BUILD_FW -output $FAT/framework/QuickJS.xcframework"
+	echo $BUILD_FW
+	$BUILD_FW
 fi
 
 echo Done
