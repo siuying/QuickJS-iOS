@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name         = "QuickJS"
-    s.version      = "0.0.2019-07-09"
+    s.version      = "0.0.2020-04-12"
     s.summary      = "QuickJS Javascript Engine"
     s.homepage     = "https://bellard.org/quickjs/"
     

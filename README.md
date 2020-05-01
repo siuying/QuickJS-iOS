@@ -1,6 +1,6 @@
 # QuickJS iOS
 
-[QuickJS Javascript Engine](https://bellard.org/quickjs/) static libraries compiled for armv64, arm64e and x86_64 for use in iOS development.
+[QuickJS Javascript Engine](https://bellard.org/quickjs/) static libraries compiled for use in iOS development.
 
 ## Why?
 
@@ -12,7 +12,7 @@ much reason to use this over JSC.
 To use the library with cocoapods:
 
 ```
-pod "QuickJS", :podspec => 'https://raw.githubusercontent.com/siuying/QuickJS-iOS/0.0.2019-07-09/QuickJS.podspec'
+pod "QuickJS", :podspec => 'https://raw.githubusercontent.com/siuying/QuickJS-iOS/0.0.2020-04-12/QuickJS.podspec'
 
 ```
 
