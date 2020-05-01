@@ -42,6 +42,7 @@ then
 		curl $SOURCE_URL -o quickjs.tar.xz && tar -xf ./quickjs.tar.xz \
 			|| exit 1
 		ln -s $SOURCE/VERSION ./VERSION
+		cat ./environ.h >> $SOURCE/quickjs.h
 	fi
 
 	CWD=`pwd`
