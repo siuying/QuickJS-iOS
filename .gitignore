@@ -3,3 +3,7 @@ quickjs-*-*-*
 quickjs.tar.xz
 /QuickJS_iOS.xcodeproj/xcuserdata
 VERSION
+/.DS_Store
+/QuickJS_iOS/lib
+/QuickJS_iOS/headers
+/QuickJS_iOS/framework
