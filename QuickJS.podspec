@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
     s.subspec 'precompiled' do |ss|
       ss.source_files        = 'QuickJS_iOS/headers/*.h'
       ss.public_header_files = 'QuickJS_iOS/headers/*.h'
-      ss.header_mappings_dir = 'QuickJS_iOS'
+      ss.header_mappings_dir = 'QuickJS_iOS/headers'
       ss.vendored_libraries  = 'QuickJS_iOS/lib/*.a'
 
       # required to load all symbols in the library
