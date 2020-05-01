@@ -18,7 +18,7 @@ pod "QuickJS", :podspec => 'https://raw.githubusercontent.com/siuying/QuickJS-iO
 
 ## Compilation
 
-Run `build.sh` to fetch and build the library.
+Run `build.sh` to fetch and build the library/xcframework.
 
 ## Licensing
 

@@ -14,8 +14,8 @@ Pod::Spec.new do |s|
     s.prepare_command = 'sh build.sh'
 
     s.subspec 'precompiled' do |ss|
-      ss.source_files        = 'QuickJS_iOS/*.h'
-      ss.public_header_files = 'QuickJS_iOS/*.h'
+      ss.source_files        = 'QuickJS_iOS/headers/*.h'
+      ss.public_header_files = 'QuickJS_iOS/headers/*.h'
       ss.header_mappings_dir = 'QuickJS_iOS'
       ss.vendored_libraries  = 'QuickJS_iOS/lib/*.a'
 
