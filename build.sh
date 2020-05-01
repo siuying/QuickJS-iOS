@@ -4,10 +4,9 @@
 SOURCE="quickjs-2020-04-12"
 SOURCE_URL="https://bellard.org/quickjs/quickjs-2020-04-12.tar.xz"
 FAT="QuickJS_iOS"
-
 THIN=`pwd`/"thin"
 
-ARCHS="arm64 arm64e x86_64"
+ARCHS="x86_64h arm64 x86_64"
 COMPILE="y"
 LIPO="y"
 DEPLOYMENT_TARGET="10.0"
@@ -48,6 +47,11 @@ then
 		then
 			CONFIG_XCRUN_EXTRA_FLAG="-sdk iphonesimulator"
 		    CONFIG_EXTRA_CFLAGS="-arch $ARCH -mios-simulator-version-min=$DEPLOYMENT_TARGET"
+		elif [ "$ARCH" = "x86_64h" ]
+		then
+			MACOSX_SDK_DIR=`xcrun --show-sdk-path`
+			CONFIG_XCRUN_EXTRA_FLAG=""
+		    CONFIG_EXTRA_CFLAGS="-arch $ARCH --target=x86_64-apple-ios13-macabi -isysroot $MACOSX_SDK_DIR -isystem $MACOSX_SDK_DIR/System/iOSSupport/usr/include -iframework $MACOSX_SDK_DIR/System/iOSSupport/System/Library/Frameworks"
 		else
 			CONFIG_XCRUN_EXTRA_FLAG="-sdk iphoneos"
 			CONFIG_EXTRA_CFLAGS="-arch $ARCH -mios-simulator-version-min=$DEPLOYMENT_TARGET -fembed-bitcode"
