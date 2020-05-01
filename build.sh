@@ -1,8 +1,8 @@
 #!/bin/sh
 
 # directories
-SOURCE="quickjs-2019-07-09"
-SOURCE_URL="https://bellard.org/quickjs/quickjs-2019-07-09.tar.xz"
+SOURCE="quickjs-2020-04-12"
+SOURCE_URL="https://bellard.org/quickjs/quickjs-2020-04-12.tar.xz"
 FAT="QuickJS_iOS"
 
 THIN=`pwd`/"thin"
@@ -46,11 +46,11 @@ then
 		CFLAGS="-arch $ARCH"
 		if [ "$ARCH" = "i386" -o "$ARCH" = "x86_64" ]
 		then
-			CONFIG_SDK=iphonesimulator
+			CONFIG_XCRUN_EXTRA_FLAG="-sdk iphonesimulator"
 		    CONFIG_EXTRA_CFLAGS="-arch $ARCH -mios-simulator-version-min=$DEPLOYMENT_TARGET"
 		else
-			CONFIG_SDK=iphoneos
-			CONFIG_EXTRA_CFLAGS="-arch $ARCH -mios-version-min=$DEPLOYMENT_TARGET -fembed-bitcode"
+			CONFIG_XCRUN_EXTRA_FLAG="-sdk iphoneos"
+			CONFIG_EXTRA_CFLAGS="-arch $ARCH -mios-simulator-version-min=$DEPLOYMENT_TARGET -fembed-bitcode"
 		fi
 
 		if [ "$ARCH" = "i386" -o "$ARCH" = "armv7" ]
@@ -58,7 +58,7 @@ then
 		    CONFIG_M32="y"
 		fi
 
-		TMPDIR=${TMPDIR/%\/} CONFIG_M32=${CONFIG_M32} CONFIG_EXTRA_CFLAGS=${CONFIG_EXTRA_CFLAGS} CONFIG_SDK=${CONFIG_SDK} make -f ../Makefile -C $CWD/$SOURCE clean libquickjs.a || exit 1
+		TMPDIR=${TMPDIR/%\/} CONFIG_M32=${CONFIG_M32} CONFIG_EXTRA_CFLAGS=${CONFIG_EXTRA_CFLAGS} CONFIG_XCRUN_EXTRA_FLAG=${CONFIG_XCRUN_EXTRA_FLAG} make -f ../Makefile -C $CWD/$SOURCE clean libquickjs.a || exit 1
 		mkdir -p $THIN/$ARCH/lib
 		mv $CWD/$SOURCE/libquickjs.a $THIN/$ARCH/lib/libquickjs.a
 		cd $CWD
